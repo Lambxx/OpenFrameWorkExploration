@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "MPoint.h"
 #include "LineObj.h"
+#include "ofxGui.h"
 class ofApp : public ofBaseApp{
 
 	public:
@@ -30,4 +31,8 @@ class ofApp : public ofBaseApp{
 		int numPoints = 500;
 		vector<MPoint> groupOfPoints;
 		vector<LineObj> groupOfLines;
+
+		ofxFloatSlider rValue;
+		ofxLabel rLabel;
+		ofxPanel gui;
 };

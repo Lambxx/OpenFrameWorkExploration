@@ -388,7 +388,19 @@ obj/osx/Release/src/main.o: \
   ../../../../../libs/openFrameworks/3d/ofEasyCam.h \
   /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/ofApp.h \
   /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/MPoint.h \
-  /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/LineObj.h
+  /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/LineObj.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGui.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxToggle.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxBaseGui.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxSlider.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxInputField.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGuiUtils.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxSliderGroup.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGuiGroup.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxButton.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxLabel.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxColorPicker.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxPanel.h
 
 ../../../../../libs/openFrameworks/ofMain.h:
 
@@ -1167,3 +1179,27 @@ obj/osx/Release/src/main.o: \
 /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/MPoint.h:
 
 /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/LineObj.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGui.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxToggle.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxBaseGui.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxSlider.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxInputField.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGuiUtils.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxSliderGroup.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGuiGroup.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxButton.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxLabel.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxColorPicker.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/addons/ofxGui/src/ofxPanel.h:

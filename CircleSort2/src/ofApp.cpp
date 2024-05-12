@@ -6,7 +6,12 @@ void ofApp::setup(){
     ofSetCircleResolution(100);
     
     DefineLines(numPoints);
+  
+    gui.setup();
+    gui.add(rValue.setup("R value", 100, 0, 255));
+   
 }
+
 
 //--------------------------------------------------------------
 void ofApp::update(){
@@ -19,10 +24,7 @@ void ofApp::draw(){
    
    // Draw lines from center to points on circle
  
-float x = ofGetWidth()/2;
-   float y = ofGetHeight()/2;
-   // Need coirdinates to calculate lines coming out 
-   float radius = ofGetWidth()/10;
+
  
     
   
@@ -32,6 +34,7 @@ float x = ofGetWidth()/2;
          ofSetLineWidth(tempLine.thickness);
          ofDrawLine(tempLine.start.x, tempLine.start.y, tempLine.end.x, tempLine.end.y);
     }
+    gui.draw();
 
 }
 
@@ -130,7 +133,7 @@ void ofApp::DefineLines(int numPoints){
     float x = ofGetWidth()/2;
    float y = ofGetHeight()/2;
    // Need coirdinates to calculate lines coming out 
-   float radius = ofGetWidth()/10;
+   float radius = ofGetWidth()/100;
 
    DefinePointsOnCircle(x, y, radius, numPoints);
    for(int i = 0; i < groupOfPoints.size(); i++){
@@ -138,13 +141,13 @@ void ofApp::DefineLines(int numPoints){
         ofVec2f temp;
         temp.x = groupOfPoints[i].x - x;
         temp.y = groupOfPoints[i].y - y;
-        temp = temp * 100;
+        temp = temp * 1000;
         LineObj tempLine;
         MPoint tempM1;
         tempM1.setup(groupOfPoints[i].x, groupOfPoints[i].y);
         MPoint tempM2;
         tempM2.setup(temp.x, temp.y);
-        tempLine.setup(tempM1, tempM2);
+        tempLine.setup(tempM1, tempM2, rValue);
         groupOfLines.push_back(tempLine);
     }
 

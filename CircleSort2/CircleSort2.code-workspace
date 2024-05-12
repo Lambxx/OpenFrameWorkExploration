@@ -1,13 +1,20 @@
 {
 	"folders": [
 		{
+			"name": "CircleSort2",
 			"path": "."
 		},
 		{
-			"path": "${workspaceRoot}/../../../../libs/openFrameworks"
+			"name": "openFrameworks",
+			"path": "../../../libs/openFrameworks"
 		},
 		{
-			"path": "${workspaceRoot}/../../../../addons"
+			"name": "ofxiOS",
+			"path": "../../../../../addons/ofxiOS"
+		},
+		{
+			"name": "addons",
+			"path": "../../../addons"
 		}
 	],
 	"settings": {}

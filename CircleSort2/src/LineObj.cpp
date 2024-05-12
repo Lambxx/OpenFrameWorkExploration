@@ -4,10 +4,10 @@
 LineObj::LineObj(){
 }
 
-void LineObj::setup(MPoint _start, MPoint _end){
+void LineObj::setup(MPoint _start, MPoint _end, float rValue){
     start = _start;
     end = _end;
-    rVal =  ofRandom(255);
+    rVal =  ofRandom(rValue);
     gVal = ofRandom(100);
     bVal = ofRandom(100);
     alphaVal = ofRandom(255);
