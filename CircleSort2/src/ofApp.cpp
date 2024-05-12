@@ -1,5 +1,6 @@
 #include "ofApp.h"
 
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 
@@ -13,10 +14,27 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
+   float x = ofGetWidth()/2;
+   float y = ofGetHeight()/2;
+   // Need coirdinates to calculate lines coming out 
+   float radius = ofGetWidth()/100;
+   ofSetColor(0, 0, 255);
+   ofDrawCircle(x,y,radius);
+    
+   DefinePointsOnCircle(x, y, radius, 100);
+   // Draw lines from center to points on circle
+    for(int i = 0; i < groupOfPoints.size(); i++){
+        ofSetColor(255, 0, 0);
+        
+         ofDrawLine(groupOfPoints[i].x, groupOfPoints[i].y,groupOfPoints[i].x+10, groupOfPoints[i].y+10);
+    }
+
+
 }
 
 //--------------------------------------------------------------
 void ofApp::exit(){
+    
 
 }
 
@@ -77,5 +95,18 @@ void ofApp::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
+
+}
+
+//----------Functions--------
+void ofApp::DefinePointsOnCircle(float x, float y, float radius, int numPoints){
+    for(int i = 0; i < numPoints; i++){
+        float angle = ofMap(i, 0, numPoints, 0, TWO_PI);
+        float x1 = x + radius * cos(angle);
+        float y1 = y + radius * sin(angle);
+        MPoint tempP;
+        tempP.setup(x1, y1);
+        groupOfPoints.push_back(tempP);
+    }
 
 }

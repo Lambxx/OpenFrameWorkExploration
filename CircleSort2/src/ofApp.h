@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-
+#include "MPoint.h"
 class ofApp : public ofBaseApp{
 
 	public:
@@ -22,5 +22,6 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h) override;
 		void dragEvent(ofDragInfo dragInfo) override;
 		void gotMessage(ofMessage msg) override;
-		
+		void DefinePointsOnCircle(float x, float y, float radius, int numPoints);
+		vector<MPoint> groupOfPoints;
 };
