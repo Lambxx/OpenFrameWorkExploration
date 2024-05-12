@@ -33,6 +33,8 @@ class ofApp : public ofBaseApp{
 		vector<LineObj> groupOfLines;
 
 		ofxFloatSlider rValue;
+		ofxFloatSlider gValue;
+		ofxFloatSlider bValue;
 		ofxLabel rLabel;
 		ofxPanel gui;
 };

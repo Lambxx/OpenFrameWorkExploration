@@ -4,11 +4,16 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetCircleResolution(100);
-    
+    ofSetBackgroundColor(255,255,255);
     DefineLines(numPoints);
   
+  // Setup GUI
     gui.setup();
     gui.add(rValue.setup("R value", 100, 0, 255));
+    gui.add(gValue.setup("G value", 100, 0, 255));
+    gui.add(bValue.setup("B value", 100, 0, 255));
+
+    //gui.add(rLabel.setup("R Label",));
    
 }
 
@@ -46,10 +51,10 @@ void ofApp::exit(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if(key == 's'){
+    if(key == 'r'){
         BubbleSort();
     }
-     if(key == 'r'){
+     if(key == 'c'){
         groupOfPoints.clear();
         groupOfLines.clear();
         DefineLines(numPoints);
@@ -147,7 +152,7 @@ void ofApp::DefineLines(int numPoints){
         tempM1.setup(groupOfPoints[i].x, groupOfPoints[i].y);
         MPoint tempM2;
         tempM2.setup(temp.x, temp.y);
-        tempLine.setup(tempM1, tempM2, rValue);
+        tempLine.setup(tempM1, tempM2, rValue, gValue, bValue);
         groupOfLines.push_back(tempLine);
     }
 
@@ -156,6 +161,9 @@ void ofApp::DefineLines(int numPoints){
 // Bubble sort, to add varying sort attributes
 // Sorts groupOflines based on R value
 void ofApp::BubbleSort(){
+
+// ADD IN paramter r,g,b, alpha, thickness. Then set compare val based on this, then use comparison val in if statement to check if it should swap.
+
 // Issue no inherit order, order of lines does not reflect order of points
     for(int i = 0; i < groupOfLines.size(); i++){
         for(int j = 0; j < groupOfLines.size() -1 ; j++){
