@@ -14,21 +14,25 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-   float x = ofGetWidth()/2;
+   
+   // Draw lines from center to points on circle
+ 
+float x = ofGetWidth()/2;
    float y = ofGetHeight()/2;
    // Need coirdinates to calculate lines coming out 
    float radius = ofGetWidth()/100;
    ofSetColor(0, 0, 255);
    ofDrawCircle(x,y,radius);
     
-   DefinePointsOnCircle(x, y, radius, 100);
-   // Draw lines from center to points on circle
-    for(int i = 0; i < groupOfPoints.size(); i++){
+   DefinePointsOnCircle(x, y, radius, 10);
+      for(int i = 0; i < groupOfPoints.size(); i++){
         ofSetColor(255, 0, 0);
-        
-         ofDrawLine(groupOfPoints[i].x, groupOfPoints[i].y,groupOfPoints[i].x+10, groupOfPoints[i].y+10);
+        ofVec2f temp;
+        temp.x = groupOfPoints[i].x - x;
+        temp.y = groupOfPoints[i].y - y;
+        temp = temp * 100;
+         ofDrawLine(groupOfPoints[i].x, groupOfPoints[i].y,temp.x, temp.y);
     }
-
 
 }
 
@@ -85,7 +89,7 @@ void ofApp::mouseExited(int x, int y){
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-
+groupOfPoints.clear();
 }
 
 //--------------------------------------------------------------
