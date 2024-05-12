@@ -5,7 +5,7 @@
 void ofApp::setup(){
     ofSetCircleResolution(100);
     
-    DefineLines(100);
+    DefineLines(numPoints);
 }
 
 //--------------------------------------------------------------
@@ -47,7 +47,9 @@ void ofApp::keyPressed(int key){
         BubbleSort();
     }
      if(key == 'r'){
-        BubbleSort();
+        groupOfPoints.clear();
+        groupOfLines.clear();
+        DefineLines(numPoints);
     }
    
 }
@@ -96,7 +98,7 @@ void ofApp::mouseExited(int x, int y){
 void ofApp::windowResized(int w, int h){
 groupOfPoints.clear();
 groupOfLines.clear();
-     DefineLines(100);
+     DefineLines(numPoints);
 }
 
 //--------------------------------------------------------------
