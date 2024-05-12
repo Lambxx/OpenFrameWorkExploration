@@ -3,7 +3,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    ofSetCircleResolution(100);
 }
 
 //--------------------------------------------------------------
@@ -20,11 +20,10 @@ void ofApp::draw(){
 float x = ofGetWidth()/2;
    float y = ofGetHeight()/2;
    // Need coirdinates to calculate lines coming out 
-   float radius = ofGetWidth()/100;
-   ofSetColor(0, 0, 255);
-   ofDrawCircle(x,y,radius);
+   float radius = ofGetWidth()/10;
+ 
     
-   DefinePointsOnCircle(x, y, radius, 10);
+   DefinePointsOnCircle(x, y, radius, 100);
       for(int i = 0; i < groupOfPoints.size(); i++){
         ofSetColor(255, 0, 0);
         ofVec2f temp;
