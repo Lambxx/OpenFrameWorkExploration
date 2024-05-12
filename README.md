@@ -7,4 +7,7 @@
 
  ### CircleSort ###
  
- *TBC...*
+ *Project still under development 
+ Will display a series of coloured lines extending from a central circle
+ Allow you to sort lines on attributes, e,g RBG values 
+ Show sorting process for different types of Sort e,g bubble, insertion etc 
