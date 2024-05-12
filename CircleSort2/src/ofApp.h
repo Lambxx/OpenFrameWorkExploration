@@ -24,6 +24,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo) override;
 		void gotMessage(ofMessage msg) override;
 		void DefinePointsOnCircle(float x, float y, float radius, int numPoints);
+		void DefineLines(float x, float y, float radius, int numPoints);
 		vector<MPoint> groupOfPoints;
 		vector<LineObj> groupOfLines;
 };

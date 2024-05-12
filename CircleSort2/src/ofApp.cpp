@@ -4,6 +4,11 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetCircleResolution(100);
+    float x = ofGetWidth()/2;
+   float y = ofGetHeight()/2;
+   // Need coirdinates to calculate lines coming out 
+   float radius = ofGetWidth()/10;
+    DefineLines(x, y, radius, 100);
 }
 
 //--------------------------------------------------------------
@@ -23,14 +28,11 @@ float x = ofGetWidth()/2;
    float radius = ofGetWidth()/10;
  
     
-   DefinePointsOnCircle(x, y, radius, 100);
-      for(int i = 0; i < groupOfPoints.size(); i++){
-        ofSetColor(255, 0, 0);
-        ofVec2f temp;
-        temp.x = groupOfPoints[i].x - x;
-        temp.y = groupOfPoints[i].y - y;
-        temp = temp * 100;
-         ofDrawLine(groupOfPoints[i].x, groupOfPoints[i].y,temp.x, temp.y);
+  
+      for(int i = 0; i < groupOfLines.size(); i++){
+         LineObj tempLine = groupOfLines[i];
+         ofSetColor(tempLine.rVal, tempLine.gVal, tempLine.bVal, tempLine.alphaVal);
+         ofDrawLine(tempLine.start.x, tempLine.start.y, tempLine.end.x, tempLine.end.y);
     }
 
 }
@@ -89,6 +91,11 @@ void ofApp::mouseExited(int x, int y){
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
 groupOfPoints.clear();
+float x = ofGetWidth()/2;
+   float y = ofGetHeight()/2;
+   // Need coirdinates to calculate lines coming out 
+   float radius = ofGetWidth()/10;
+     DefineLines(x, y, radius, 100);
 }
 
 //--------------------------------------------------------------
@@ -102,6 +109,7 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 }
 
 //----------Functions--------
+// Define points on circle
 void ofApp::DefinePointsOnCircle(float x, float y, float radius, int numPoints){
     for(int i = 0; i < numPoints; i++){
         float angle = ofMap(i, 0, numPoints, 0, TWO_PI);
@@ -113,3 +121,25 @@ void ofApp::DefinePointsOnCircle(float x, float y, float radius, int numPoints){
     }
 
 }
+
+// Define lines 
+void ofApp::DefineLines(float x, float y, float radius, int numPoints){
+
+   DefinePointsOnCircle(x, y, radius, numPoints);
+   for(int i = 0; i < groupOfPoints.size(); i++){
+        ofSetColor(255, 0, 0);
+        ofVec2f temp;
+        temp.x = groupOfPoints[i].x - x;
+        temp.y = groupOfPoints[i].y - y;
+        temp = temp * 100;
+        LineObj tempLine;
+        MPoint tempM1;
+        tempM1.setup(groupOfPoints[i].x, groupOfPoints[i].y);
+        MPoint tempM2;
+        tempM2.setup(temp.x, temp.y);
+        tempLine.setup(tempM1, tempM2);
+        groupOfLines.push_back(tempLine);
+    }
+
+}
+
