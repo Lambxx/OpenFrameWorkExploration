@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "MPoint.h"
+#include "LineObj.h"
 class ofApp : public ofBaseApp{
 
 	public:
@@ -24,4 +25,5 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg) override;
 		void DefinePointsOnCircle(float x, float y, float radius, int numPoints);
 		vector<MPoint> groupOfPoints;
+		vector<LineObj> groupOfLines;
 };

@@ -387,7 +387,8 @@ obj/osx/Release/src/ofApp.o: \
   ../../../../../libs/openFrameworks/3d/of3dUtils.h \
   ../../../../../libs/openFrameworks/3d/ofCamera.h \
   ../../../../../libs/openFrameworks/3d/ofEasyCam.h \
-  /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/MPoint.h
+  /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/MPoint.h \
+  /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/LineObj.h
 
 /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/ofApp.h:
 
@@ -1164,3 +1165,5 @@ obj/osx/Release/src/ofApp.o: \
 ../../../../../libs/openFrameworks/3d/ofEasyCam.h:
 
 /Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/MPoint.h:
+
+/Users/luna/Documents/of_v0.12.0_osx_release/apps/myApps/OpenFExploration/OpenFrameWorkExploration/CircleSort2/src/LineObj.h:
