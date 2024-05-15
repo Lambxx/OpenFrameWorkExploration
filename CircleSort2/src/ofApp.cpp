@@ -40,6 +40,15 @@ void ofApp::draw(){
          ofDrawLine(tempLine.start.x, tempLine.start.y, tempLine.end.x, tempLine.end.y);
     }
     gui.draw();
+    if (SortWanted && !sorted){
+        BubbleSort();
+        
+    }
+    if (sorted && SortWanted){
+        ofDrawBitmapString("Sorted", ofGetWidth()/2, ofGetHeight()/2);
+        SortWanted = false;
+        sorted = false;
+    }
 
 }
 
@@ -53,21 +62,13 @@ void ofApp::exit(){
 void ofApp::keyPressed(int key){
     if(key == 'r'){
        sorted = false;
-       count = 0;
-        while (count <= numPoints){
-           BubbleSort();
-           // draw();
-            count++;
-            ofSleepMillis(100);
-             for(int i = 0; i < groupOfLines.size(); i++){
-         LineObj tempLine = groupOfLines[i];
-         ofSetColor(tempLine.rVal, tempLine.gVal, tempLine.bVal, tempLine.alphaVal);
-         ofSetLineWidth(tempLine.thickness);
-         ofDrawLine(tempLine.start.x, tempLine.start.y, tempLine.end.x, tempLine.end.y);
-    }
+       SortWanted = true;
+ 
+        
+    
 
         }
-    }
+    
      if(key == 'c'){
        
         groupOfPoints.clear();
@@ -181,10 +182,11 @@ void ofApp::BubbleSort(){
 // ADD IN paramter r,g,b, alpha, thickness. Then set compare val based on this, then use comparison val in if statement to check if it should swap.
 
 // Issue no inherit order, order of lines does not reflect order of points
-    for(int i = 0; i < groupOfLines.size(); i++){
-        for(int j = 0; j < count ; j++){
+sorted = true;
+  
+        for(int j = 0; j < groupOfLines.size()-1 ; j++){
             if(groupOfLines[j].rVal > groupOfLines[j+1].rVal){
-                
+                sorted = false;
                 // Swap corodinates not lined 
                int tempR = groupOfLines[j].rVal;
                 int tempG = groupOfLines[j].gVal;
@@ -206,5 +208,5 @@ void ofApp::BubbleSort(){
             }
         }
     }
-}
+
 
