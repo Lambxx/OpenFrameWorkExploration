@@ -52,12 +52,28 @@ void ofApp::exit(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if(key == 'r'){
-        BubbleSort();
+       sorted = false;
+       count = 0;
+        while (count <= numPoints){
+           BubbleSort();
+           // draw();
+            count++;
+            ofSleepMillis(100);
+             for(int i = 0; i < groupOfLines.size(); i++){
+         LineObj tempLine = groupOfLines[i];
+         ofSetColor(tempLine.rVal, tempLine.gVal, tempLine.bVal, tempLine.alphaVal);
+         ofSetLineWidth(tempLine.thickness);
+         ofDrawLine(tempLine.start.x, tempLine.start.y, tempLine.end.x, tempLine.end.y);
+    }
+
+        }
     }
      if(key == 'c'){
+       
         groupOfPoints.clear();
         groupOfLines.clear();
         DefineLines(numPoints);
+        
     }
    
 }
@@ -166,8 +182,9 @@ void ofApp::BubbleSort(){
 
 // Issue no inherit order, order of lines does not reflect order of points
     for(int i = 0; i < groupOfLines.size(); i++){
-        for(int j = 0; j < groupOfLines.size() -1 ; j++){
+        for(int j = 0; j < count ; j++){
             if(groupOfLines[j].rVal > groupOfLines[j+1].rVal){
+                
                 // Swap corodinates not lined 
                int tempR = groupOfLines[j].rVal;
                 int tempG = groupOfLines[j].gVal;

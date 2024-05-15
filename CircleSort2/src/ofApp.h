@@ -28,7 +28,10 @@ class ofApp : public ofBaseApp{
 		void DefineLines( int numPoints);
 		void BubbleSort();
 		
+		
 		int numPoints = 500;
+		int count = 0;
+		bool sorted = false;
 		vector<MPoint> groupOfPoints;
 		vector<LineObj> groupOfLines;
 
