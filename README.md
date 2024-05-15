@@ -9,4 +9,5 @@
  
 Allows you to generate lines around a circle; you can set max R,G,B, and A values for lines which are generated with random values 0 - max.
 You can then perform a BubbleSort using any one of these 4 values, and watch the sorting algorithm take place whilst also adjusting speed.
-To see the project in action, you can download the folder CircleSort2 from the repo; some examples are shown below. 
+To see the project in action, you can download the folder CircleSort2 from the repo.
+A github Pages, for this project where you can use it on the web will be coming soon.
