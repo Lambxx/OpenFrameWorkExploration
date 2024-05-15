@@ -12,12 +12,51 @@ void ofApp::setup(){
     gui.add(rValue.setup("R value", 100, 0, 255));
     gui.add(gValue.setup("G value", 100, 0, 255));
     gui.add(bValue.setup("B value", 100, 0, 255));
+    gui.add(aValue.setup("A value", 100, 0, 255));
+    gui.add(sortByRvalue.setup("Sort by R value"));
+    gui.add(sortByGvalue.setup("Sort by G value"));
+    gui.add(sortByBvalue.setup("Sort by B value"));
+    gui.add(sortByAvalue.setup("Sort by A value"));
+    gui.add(sortSpeed.setup("Sort Speed", 1, 0, 10));
+    gui.add(drawLines.setup("Draw new lines"));
 
     //gui.add(rLabel.setup("R Label",));
-   
+    sortByRvalue.addListener(this,&ofApp::sortByRvalueButtonPressed);
+    sortByGvalue.addListener(this,&ofApp::sortByGvalueButtonPressed);
+    sortByBvalue.addListener(this,&ofApp::sortByBvalueButtonPressed);
+    sortByAvalue.addListener(this,&ofApp::sortByAvalueButtonPressed);
+    drawLines.addListener(this,&ofApp::drawNewLines);
+}
+// Button listeners----------------
+void ofApp::sortByRvalueButtonPressed(){
+    sorted = false;
+    SortWanted = true;
+    valueToSort = 'r';
 }
 
+void ofApp::sortByGvalueButtonPressed(){
+    sorted = false;
+    SortWanted = true;
+    valueToSort = 'g';
+}
 
+void ofApp::sortByBvalueButtonPressed(){
+    sorted = false;
+    SortWanted = true;
+    valueToSort = 'b';
+}
+
+void ofApp::sortByAvalueButtonPressed(){
+    sorted = false;
+    SortWanted = true;
+    valueToSort = 'a';
+}
+
+void ofApp::drawNewLines(){
+    groupOfPoints.clear();
+    groupOfLines.clear();
+    DefineLines(numPoints);
+}
 //--------------------------------------------------------------
 void ofApp::update(){
 
@@ -42,6 +81,8 @@ void ofApp::draw(){
     gui.draw();
     if (SortWanted && !sorted){
         BubbleSort();
+        int speed = ofMap(sortSpeed, 0, 10, 100, 1);
+        ofSleepMillis(speed);
         
     }
     if (sorted && SortWanted){
@@ -60,22 +101,7 @@ void ofApp::exit(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if(key == 'r'){
-       sorted = false;
-       SortWanted = true;
- 
-        
     
-
-        }
-    
-     if(key == 'c'){
-       
-        groupOfPoints.clear();
-        groupOfLines.clear();
-        DefineLines(numPoints);
-        
-    }
    
 }
 
@@ -169,7 +195,7 @@ void ofApp::DefineLines(int numPoints){
         tempM1.setup(groupOfPoints[i].x, groupOfPoints[i].y);
         MPoint tempM2;
         tempM2.setup(temp.x, temp.y);
-        tempLine.setup(tempM1, tempM2, rValue, gValue, bValue);
+        tempLine.setup(tempM1, tempM2, rValue, gValue, bValue, aValue);
         groupOfLines.push_back(tempLine);
     }
 
@@ -183,9 +209,49 @@ void ofApp::BubbleSort(){
 
 // Issue no inherit order, order of lines does not reflect order of points
 sorted = true;
-  
+
         for(int j = 0; j < groupOfLines.size()-1 ; j++){
-            if(groupOfLines[j].rVal > groupOfLines[j+1].rVal){
+            float compareVal1;
+            float compareVal2;
+            switch (valueToSort) {
+            case 'r':
+            {
+                /* code */
+                compareVal1 = groupOfLines[j].rVal; 
+                 compareVal2 = groupOfLines[j+1].rVal;
+                break;
+            }
+
+            case 'g':
+            {
+                /* code */
+                compareVal1 = groupOfLines[j].gVal; 
+                 compareVal2 = groupOfLines[j+1].gVal;
+                break;
+            }
+            case 'b':
+            {
+                /* code */
+                 compareVal1 = groupOfLines[j].bVal; 
+                compareVal2 = groupOfLines[j+1].bVal;
+                break;
+            }
+            case 'a':
+            {
+                /* code */
+                 compareVal1 = groupOfLines[j].alphaVal; 
+                compareVal2 = groupOfLines[j+1].alphaVal;
+                break;
+            }
+            default:
+            {
+                 compareVal1 = groupOfLines[j].rVal; 
+                 compareVal2 = groupOfLines[j+1].rVal;
+                break;
+            }
+            }
+
+            if(compareVal1 < compareVal2){
                 sorted = false;
                 // Swap corodinates not lined 
                int tempR = groupOfLines[j].rVal;

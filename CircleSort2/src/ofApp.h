@@ -30,15 +30,30 @@ class ofApp : public ofBaseApp{
 		
 		
 		int numPoints = 500;
+		char valueToSort;
 
 		bool sorted = true;
 		bool SortWanted = false;
 		vector<MPoint> groupOfPoints;
 		vector<LineObj> groupOfLines;
 
+        void sortByRvalueButtonPressed();
+		void sortByBvalueButtonPressed();
+		void sortByGvalueButtonPressed();
+		void sortByAvalueButtonPressed();
+		void drawNewLines();
+
 		ofxFloatSlider rValue;
 		ofxFloatSlider gValue;
 		ofxFloatSlider bValue;
+		ofxFloatSlider aValue;
+		ofxFloatSlider sortSpeed;
 		ofxLabel rLabel;
 		ofxPanel gui;
+
+		ofxButton sortByRvalue;
+		ofxButton sortByGvalue;
+		ofxButton sortByBvalue;
+		ofxButton sortByAvalue;
+		ofxButton drawLines;
 };

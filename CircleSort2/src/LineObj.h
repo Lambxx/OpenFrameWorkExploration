@@ -9,7 +9,7 @@ class LineObj {
     public: // place public functions or variables declarations here
 
     // methods, equivalent to specific functions of your class objects
-    void setup(MPoint _start, MPoint _end,float rValue, float gValue,float bValue);
+    void setup(MPoint _start, MPoint _end,float rValue, float gValue,float bValue,float aValue);
     // variables
     MPoint start;      // position
     MPoint end; // position
